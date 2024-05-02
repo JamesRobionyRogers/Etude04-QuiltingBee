@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etude 04 - Quilting Bee</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body class="background bg-blue-400"> <!-- <body class="background"> -->
+
+    <div class="grid grid-cols-3 gap-20">
+
+        <div class="input-pane z-10 bg-white col-span-1 px-10 py-10 my-auto h-screen w-fit flex flex-col justify-center border-r border-gray-900/10">
+            <div class="input-pane__header pb-10">
+                <h2 class="text-5xl font-semibold leading-7 text-gray-900 pb-8">
+                    Quilting Bee
+                </h2>
+                <p class="mt-1 pb-3 text-sm leading-6 text-gray-600">
+                    This program will generate a quilt pattern based on the parameters you provide. 
+                </p>
+                <code class="mt-10 mx-auto text-sm leading-6 text-gray-600"> scale, red, blue, green</code>
+            </div>
+
+            <div class="">
+                <div class="">
+
+                    <label for="instructions" class="block text-sm font-medium leading-6 text-gray-900">
+                        Enter the parameters for the quilt
+                    </label>
+                    <div class="my-2">
+                        <textarea 
+                            id="textarea__instructions" name="instructions" rows="10"
+                            class="px-2 block w-full bg-white rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="relative my-6">
+                    <label for="slider__layer" class="block text-sm font-medium leading-6 text-gray-900">
+                        Layers
+                    </label>
+                    <input id="slider__layer" type="range" value="3" min="0" max="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer ring-1 ring-inset ring-gray-300">
+                    <div id="slider__values" class="flex justify-between"></div>
+                </div>
+
+                <div class="mt-5 py-8 flex flex-row justify-between">
+
+                    <span>
+                        <button onclick="drawExampleQuilt()" id="button__generateQuilt" type="button"
+                            class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ring-1 ring-inset ring-gray-300">
+                            Example
+                        </button>
+                    </span>
+                
+                    <span>
+                        <button onclick="drawQuilt()" id="button__generateQuilt" type="button"
+                            class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <!-- Tick icon  -->
+                            <svg class="-ml-0.5 mr-1.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"> <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /> </svg>
+                            Generate Quilt
+                        </button>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="z-10 col-span-2 flex justify-center">
+            <canvas id="canvas" class="h-screen p-14"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="stack.js"></script>
+    <script>drawQuilt()</script>
+</body>
+</html>
