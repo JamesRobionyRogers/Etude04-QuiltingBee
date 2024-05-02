@@ -66,7 +66,7 @@ const drawQuilt = () => {
             y = y - size / 2;
 
             // Draw the square
-            ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+            ctx.fillStyle = `rgb(${r}, ${b}, ${g})`;
             ctx.fillRect(x, y, size, size);
 
             // Calculate all the corners of the square and add them to the corners array
